@@ -18,4 +18,11 @@ const consultarDocumentos = async (nombreColeccion, filtro) => {
   return coleccion.find(filtro).limit(parseInt(process.env.DEFAULT_LIMIT_PROPERTIES)).toArray()
 }
 
-module.exports = { consultarDocumentos }
+const consultarTiposPropiedades = async (nombreColeccion, filtro) => {
+  let db = await conectarDB()
+  let pipeline = [{$group: {_id:'$property_type'}}]
+  let coleccion = db.collection(nombreColeccion).aggregate(pipeline)
+  return coleccion.limit(parseInt(process.env.DEFAULT_LIMIT_PROPERTIES)).toArray()
+}
+
+module.exports = { consultarDocumentos, consultarTiposPropiedades}

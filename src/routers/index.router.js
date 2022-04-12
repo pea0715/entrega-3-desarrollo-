@@ -7,6 +7,8 @@ const vs = "/api/v1"
 
 router.get(vs + "/airbnb/all-properties", airbnbCtr.consultarAirbnb)
 
+router.get(vs + "/airbnb/types", airbnbCtr.ConsultarTiposPropiedades1)
+
 module.exports = router
 
 
