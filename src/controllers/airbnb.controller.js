@@ -20,6 +20,7 @@ const consultarAirbnb = async (req, res) => {
         res.status(500).send(respuesta)
     }
 }
+// en este parte llamaremos a consultar tipos de propiedas para mostrar en base eso 
 const ConsultarTiposPropiedades1 = async (req, res) => {
     let respuesta = {}
     try {
