@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "9b22b8da-d77e-4721-a3f6-e8ae5eb94332",
+		"name": "airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "colsulta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/all-properties",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"all-properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 enpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/airbnb/types",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"airbnb",
+						"types"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
