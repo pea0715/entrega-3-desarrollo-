@@ -27,11 +27,13 @@ const consultarTiposPropiedades = async (nombreColeccion, filtro) => {
   return coleccion.limit(parseInt(process.env.DEFAULT_LIMIT_PROPERTIES)).toArray()
 }
 
-
-const numeroResenas = async (nombreColeccion, filtro) => {
+// consultar el top 20 de las airbnb 
+const consultarTop20 = async (nombreColeccion) => {
   let db = await conectarDB()
-  let pipeline = [{}]
-
+  let consulta = [{$project: {name: 1, beds: 1, number_of_reviews : 1, price: 1}},
+                  {$sort : {number_of_reviews : -1}}]
+  let coleccion = db.collection(nombreColeccion).aggregate(consulta)
+  return coleccion.limit(20).toArray()
 }
 
-module.exports = { consultarDocumentos, consultarTiposPropiedades}
+module.exports = { consultarDocumentos, consultarTiposPropiedades,consultarTop20}
